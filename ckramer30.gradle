@@ -1,0 +1,27 @@
+defaultTasks 'jar'
+
+apply plugin: 'java'
+
+dependencies {
+    compile files('lib/resources.jar')
+}
+
+version = '1.0'
+
+jar {
+    manifest {
+        attributes 'Main-Class' : 'edu.gatech.oad.antlab.pkg1.AntLabMain',
+                   'Class-Path' : '../../lib/resources.jar',
+                   'Implementation-Title' : 'ckramer30',
+                   'Implementation-Version' : version
+
+    }
+}
+
+uploadArchives {
+    repositories {
+        flatDir {
+            dirs 'M2'
+        }
+    }
+}
