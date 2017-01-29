@@ -1,4 +1,5 @@
 package edu.gatech.oad.antlab.person;
+import java.util.LinkedList;
 
 /**
  *  A simple class for person 2
@@ -31,7 +32,23 @@ public class Person2 {
 	 */
 	private String calc(String input) {
 	  //Person 2 put your implementation here
-	  return null;
+
+		LinkedList<Character> stringList = new LinkedList<>();
+		for (int i = 0; i < input.length(); i++) {
+			stringList.add(input.charAt(i));
+		}
+
+		String out = "";
+
+		int i = 0;
+		char[] outChar = new char[input.length()];
+		while (stringList.isEmpty() != true) {
+			int place = (int) (Math.random()*stringList.size());
+			outChar[i] = stringList.remove(place);
+			i++;
+		}
+		out = out.valueOf(outChar);
+		return out;
 	}
 	/**
 	 * Return a string rep of this object
